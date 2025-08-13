@@ -197,49 +197,50 @@
       color: #1A2A80; /* tím đậm khi hover */
     }
 
+    /* Map container (trong cột phải) */
     .map-container {
-      padding-left: var(--space-m);
-      padding-right: var(--space-m);
+      padding-left: 0;
+      padding-right: 0;
     }
-
     .map-container iframe {
       width: 100%;
-      height: 200px;
+      height: 260px;
       border: none;
       border-radius: var(--radius);
     }
 
+    /* 2 cột lớn: Lịch trình (trái) / Địa điểm+Map (phải) */
     .schedule-location {
       display: flex;
       gap: 20px;
+      align-items: flex-start;
     }
-
-    .schedule-location > div {
-      flex: 1;
-    }
-
-    .timeline-column {
+    /* Cột trái ~38%, căn giữa dọc */
+    .schedule-location > div:first-child {
+      flex: 0 0 38%;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* căn giữa theo chiều dọc */
+      justify-content: center;
+    }
+    /* Cột phải ~62% */
+    .schedule-location > div:last-child {
+      flex: 1 1 62%;
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* map | image luôn chia đôi */
+      gap: 12px;
+      align-items: start;
     }
 
-    @media (max-width: 768px) {
-      .schedule-location {
-        flex-direction: column;
-      }
-    }
-
-    /* Image below the map */
+    /* Ảnh sơ đồ + caption dưới ảnh */
     .map-image {
       text-align: center;
-      margin-top: 10px;
     }
     .map-image img {
-      max-width: 50%;
+      width: 100%;
       height: auto;
       border-radius: var(--radius);
       box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      display: block;
       cursor: zoom-in;
     }
     .caption {
@@ -271,11 +272,23 @@
       background: #fff;
     }
 
-
-
+    /* Responsive: trên mobile chỉ xếp dọc 2 cột lớn,
+      nhưng cột phải vẫn giữ 2 cột map + ảnh */
+    @media (max-width: 768px) {
+      .schedule-location {
+        flex-direction: column;
+      }
+      .schedule-location > div:last-child {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .map-container iframe {
+        height: 220px;
+      }
+    }
   </style>
-
 </head>
+
 <body>
   <header>
     <h1>🎓 Lễ tốt nghiệp 🎓</h1>
@@ -291,9 +304,11 @@
     Dưới đây là một số thông tin về buổi lễ, hy vọng mọi người có thể sắp xếp thời gian để cùng chụp vài tấm hình kỷ niệm nhé! 🥰</p>
   </section>
 
-  <section class="schedule-location">
-    <div class="timeline-column">
-      <h2>⏳ Lịch trình ngày 21/08/2025</h2>
+  <section class="section schedule-location">
+    <!-- Cột Lịch trình (hẹp hơn) -->
+    <div class="schedule-col">
+      <h2>⏳ Lịch trình</h2>
+      <div class="schedule-date"><strong>Ngày 21/08/2025</strong></div>
       <ul class="timeline">
         <li>
           <div class="time"><strong>09:00 - 12:00</strong></div>
@@ -310,23 +325,20 @@
       </ul>
     </div>
 
-    <div>
+    <!-- Cột Địa điểm + Map (rộng hơn) -->
+    <div class="map-col">
       <h2>📍 Địa điểm</h2>
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1282.7508530155865!2d105.80012176151273!3d21.048104862280763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zxJHhuqFpIGjhu41jIGtob2EgaOG7jWMgdsOgIGPDtG5nIG5naOG7hyBow6AgbuG7mWk!5e0!3m2!1sen!2s!4v1755070714692!5m2!1sen!2s" 
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-
-      <div class="map-image">
-        <a class="lightbox-trigger" href="https://i.postimg.cc/gj2vc94C/S-VHL.png">
-          <img src="https://i.postimg.cc/gj2vc94C/S-VHL.png" alt="Sơ đồ các tòa ở Viện Hàn Lâm">
-        </a>
-        <p class="caption">Sơ đồ các tòa nhà tại Viện Hàn Lâm</p>
-      </div>
-
-      <!-- Lightbox overlay (đặt gần cuối <body>, trước </body>) -->
-      <div id="lightbox" class="lightbox" aria-hidden="true">
-        <img id="lightbox-img" alt="Sơ đồ phóng to">
+      <div class="map-split">
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1282.7508530155865!2d105.80012176151273!3d21.048104862280763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zxJHhuqFpIGjhu41jIGtob2EgaOG7jWMgdsOgIGPDtG5nIG5naOG7hyBow6AgbuG7mWk!5e0!3m2!1sen!2s!4v1755070714692!5m2!1sen!2s" 
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="map-image">
+          <a class="lightbox-trigger" href="https://i.postimg.cc/gj2vc94C/S-VHL.png">
+            <img src="https://i.postimg.cc/gj2vc94C/S-VHL.png" alt="Sơ đồ các tòa ở Viện Hàn Lâm">
+          </a>
+          <p class="caption">Sơ đồ các tòa nhà tại Viện Hàn Lâm</p>
+        </div>
       </div>
     </div>
   </section>
@@ -439,6 +451,10 @@
       });
     })();
   </script>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <img id="lightbox-img" alt="Sơ đồ phóng to">
+  </div>
 </body>
 
 </html>

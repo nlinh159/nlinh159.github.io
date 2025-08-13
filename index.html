@@ -197,7 +197,7 @@
       color: #1A2A80; /* tím đậm khi hover */
     }
 
-    /* Map container (trong cột phải) */
+    /* Map container */
     .map-container {
       padding-left: 0;
       padding-right: 0;
@@ -209,7 +209,45 @@
       border-radius: var(--radius);
     }
 
-    /* Ảnh sơ đồ + caption dưới ảnh */
+    /* 2 cột lớn: Lịch trình (trái) / Địa điểm+Map (phải) */
+    .schedule-location {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    /* Cột trái ~38%, căn giữa dọc */
+    .schedule-location > div:first-child {
+      flex: 0 0 38%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Cột phải ~62%: dùng grid */
+    .map-col {
+      flex: 1 1 62%;
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* 2 cột ngang */
+      gap: 12px;
+      align-items: start;
+    }
+
+    /* Tiêu đề "📍 Địa điểm" chiếm full bề ngang grid */
+    .map-col > h2 {
+      grid-column: 1 / -1;
+      margin-bottom: 4px;
+    }
+
+    /* Bên trong: map + ảnh luôn cạnh nhau (2 cột) */
+    .map-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* map | image */
+      gap: 12px;
+      grid-column: 1 / -1; /* trải ngang dưới h2 */
+    }
+
+    /* Ảnh sơ đồ + caption */
     .map-image {
       text-align: center;
     }
@@ -226,42 +264,6 @@
       color: #555;
       margin-top: 4px;
       font-style: italic;
-    }
-
-    /* 2 cột lớn: Lịch trình (trái) / Địa điểm+Map (phải) */
-    .schedule-location {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-    /* Cột trái ~38%, căn giữa dọc */
-    .schedule-location > div:first-child {
-      flex: 0 0 38%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    /* Cột phải ~62% */
-    .schedule-location > div:last-child {
-      flex: 1 1 62%;
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* map | image luôn chia đôi */
-      gap: 12px;
-      align-items: start;
-    }
-
-    /* Cột phải ~62% */
-    .map-col {
-      flex: 1 1 62%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;   /* map | image */
-      gap: 12px;
-      align-items: start;
-    }
-
-    /* Cho tiêu đề Địa điểm chiếm full chiều ngang grid */
-    .map-col > h2 {
-      grid-column: 1 / -1;
     }
 
     /* Lightbox */
@@ -286,20 +288,12 @@
       background: #fff;
     }
 
-    /* Responsive: trên mobile chỉ xếp dọc 2 cột lớn,
-      nhưng cột phải vẫn giữ 2 cột map + ảnh */
+    /* Mobile: 2 cột lớn xếp dọc, NHƯNG map + ảnh vẫn 2 cột ngang như yêu cầu */
     @media (max-width: 768px) {
-      .schedule-location {
-        flex-direction: column;
-      }
-      .schedule-location > div:last-child {
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
-      .map-container iframe {
-        height: 220px;
-      }
+      .schedule-location { flex-direction: column; }
+      .map-container iframe { height: 220px; }
     }
+
   </style>
 </head>
 

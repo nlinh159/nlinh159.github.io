@@ -206,7 +206,21 @@
       border: none;
       border-radius: var(--radius);
     }
-    
+
+    .schedule-location {
+      display: flex;
+      gap: 20px;
+    }
+
+    .schedule-location > div {
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .schedule-location {
+        flex-direction: column;
+      }
+    }
 
   </style>
 
@@ -225,31 +239,32 @@
     Dưới đây là một số thông tin về buổi lễ, hy vọng mọi người có thể sắp xếp thời gian để cùng chụp vài tấm hình kỷ niệm nhé! 🥰</p>
   </section>
 
-  <section class="section">
-    <h2>⏳ Lịch trình</h2>
-    <ul class="timeline">
-      <li>
-        <div class="time"><strong>09:00 - 12:00</strong></div>
-        <div class="event">📸 Chụp ảnh trước lễ</div>
-      </li>
-      <li>
-        <div class="time"><strong>12:30 - 16:30</strong></div>
-        <div class="event">🎓 Lễ tốt nghiệp tại hội trường</div>
-      </li>
-      <li>
-        <div class="time"><strong>16:45 - 19:00</strong></div>
-        <div class="event">📷 Chụp ảnh sau lễ</div>
-      </li>
-    </ul>
-  </section>
-
-  <section class="section">
-    <h2>📍 Địa điểm</h2>
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1282.7508530155865!2d105.80012176151273!3d21.048104862280763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zxJHhuqFpIGjhu41jIGtob2EgaOG7jWMgdsOgIGPDtG5nIG5naOG7hyBow6AgbuG7mWk!5e0!3m2!1sen!2s!4v1755070714692!5m2!1sen!2s" 
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <section class="section schedule-location">
+    <div>
+      <h2>⏳ Lịch trình</h2>
+      <ul class="timeline">
+        <li>
+          <div class="time"><strong>09:00 - 12:00</strong></div>
+          <div class="event">📸 Chụp ảnh trước lễ</div>
+        </li>
+        <li>
+          <div class="time"><strong>12:30 - 16:30</strong></div>
+          <div class="event">🎓 Lễ tốt nghiệp</div>
+        </li>
+        <li>
+          <div class="time"><strong>16:45 - 19:00</strong></div>
+          <div class="event">📷 Chụp ảnh sau lễ</div>
+        </li>
+      </ul>
     </div>
-  </section>
+
+    <div>
+      <h2>📍 Địa điểm</h2>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1282.7508530155865!2d105.80012176151273!3d21.048104862280763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zxJHhuqFpIGjhu41jIGtob2EgaOG7jWMgdsOgIGPDtG5nIG5naOG7hyBow6AgbuG7mWk!5e0!3m2!1sen!2s!4v1755070714692!5m2!1sen!2s" 
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
 
   <section class="section">
     <h2>📸 Chụp ảnh kỷ niệm</h2>

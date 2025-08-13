@@ -6,22 +6,27 @@
   <title>Thiệp mời chụp ảnh tốt nghiệp với Ngọc Linh</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
-    /* Base */
+
     :root {
       --space-xxs: 4px;
       --space-xs: 6px;
       --space-s: 8px;
       --space-m: 10px;
       --radius: 6px;
+      --mapH: clamp(220px, 28vw, 340px);
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Quicksand', sans-serif;
       background: #FAF9EE;
       color: #333;
       margin: 0;
       padding: 0;
-      line-height: 1.5; /* tăng nhẹ để dễ đọc */
+      line-height: 1.5;
     }
 
     h1, h2 {
@@ -32,37 +37,37 @@
       font-weight: 400;
     }
 
-
-    /* Header */
     header {
       text-align: center;
       padding: 12px;
       background: #B2B0E8;
     }
+
     h1 {
-      margin: 0 0 var(--space-xs) 0;
+      margin: 0 0 var(--space-xs);
       font-size: 1.6rem;
     }
+
     header p {
       margin: var(--space-xxs) 0;
       font-size: 0.95rem;
     }
 
-    /* Sections */
     .section {
       padding: var(--space-s) var(--space-m);
       margin-bottom: var(--space-s);
     }
+
     .section h2 {
-      margin: 0 0 var(--space-xs) 0;
+      margin: 0 0 var(--space-xs);
       font-size: 1.15rem;
     }
+
     .section p,
-   .section ul {
-    margin: var(--space-xxs) 0;
+    .section ul {
+      margin: var(--space-xxs) 0;
     }
 
-    /* Timeline Vertical Pastel Style */
     .timeline {
       list-style: none;
       padding-left: 20px;
@@ -77,7 +82,7 @@
       left: 8px;
       width: 2px;
       height: 100%;
-      background: #7a85c1; /* line pastel */
+      background: #7a85c1;
     }
 
     .timeline li {
@@ -110,8 +115,6 @@
       margin-top: 4px;
     }
 
-
-    /* Map */
     iframe {
       width: 100%;
       height: 200px;
@@ -120,19 +123,17 @@
       border-radius: var(--radius);
     }
 
-    /* Form */
     form {
       margin-top: var(--space-s);
       display: grid;
       gap: var(--space-xs);
     }
-    label {
-      margin-top: 0; /* bỏ margin thừa để khối gọn */
-    }
+
     input, select, button {
       width: 100%;
       padding: 6px;
     }
+
     button {
       background: #1A2A80;
       color: #fff;
@@ -141,12 +142,11 @@
       margin-top: var(--space-xs);
       border-radius: var(--radius);
     }
+
     button:hover {
       background: #B2B0E8;
-      color: #fff;
     }
 
-    /* Success message */
     .success {
       padding: 10px;
       background: #d4edda;
@@ -157,185 +157,65 @@
       font-size: 0.95rem;
     }
 
-    /* Lists inside contact section if dùng ul custom */
     .section ul {
-      padding-left: 18px; /* gọn nhưng vẫn canh đẹp */
+      padding-left: 18px;
     }
 
-    /* Last section sát hơn với cuối trang */
     .section:last-of-type {
       margin-bottom: var(--space-xs);
     }
 
-    /* Small screens tweak */
-    @media (max-width: 480px) {
-      header { padding: 10px; }
-      .section { padding: var(--space-xs) var(--space-s); }
-      iframe { height: 210px; }
+    textarea, button, input, select {
+      font-family: 'Quicksand', sans-serif;
     }
 
     textarea, button {
-      font-family: 'Quicksand', sans-serif;
-      font-weight: 400;
       font-size: 0.95rem;
     }
 
     input, select {
-      font-family: 'Quicksand', sans-serif;
       font-weight: 600;
     }
 
-    /* Style riêng cho link liên lạc */
     .section ul a {
       text-decoration: none;
-      color: #7a85c1; /* tím pastel */
-      font-weight: 500; /* hơi đậm để dễ nhìn */
+      color: #7a85c1;
+      font-weight: 500;
     }
 
     .section ul a:hover {
       text-decoration: underline;
-      color: #1A2A80; /* tím đậm khi hover */
+      color: #1A2A80;
     }
 
-    /* Map container */
-    .map-container {
-      padding-left: 0;
-      padding-right: 0;
-    }
-    .map-container iframe {
-      width: 100%;
-      height: 260px;
-      border: none;
-      border-radius: var(--radius);
-    }
-
-    /* 2 cột lớn: Lịch trình (trái) / Địa điểm+Map (phải) */
     .schedule-location {
       display: flex;
       gap: 20px;
       align-items: flex-start;
     }
 
-    /* Cột trái ~38%, căn giữa dọc */
     .schedule-location > div:first-child {
       flex: 0 0 40%;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
     }
 
-    /* Cột phải ~62%: dùng grid */
     .map-col {
       flex: 1 1 60%;
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* 2 cột ngang */
-      gap: 12px;
-      align-items: start;
     }
 
-    /* Tiêu đề "📍 Địa điểm" chiếm full bề ngang grid */
-    .map-col > h2 {
-      grid-column: 1 / -1;
+    .map-col h2 {
       margin-bottom: 4px;
     }
 
-    :root {
-    --mapH: clamp(220px, 28vw, 340px);  /* desktop */
-  }
-
-    /* Bên trong: map + ảnh luôn cạnh nhau (2 cột) */
-    .map-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* map | image */
-      gap: 12px;
-      align-items: stretch; /* trải ngang dưới h2 */
-    }
-
-    /* Bọc để phần tử con fill chiều cao */
-    .map-container,
-    .map-image {
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Áp chiều cao chung */
-    .map-container iframe,
-    .map-image img {
-      width: 100%;
-      height: var(--mapH);
-      border-radius: var(--radius);
-      object-fit: cover;  /* ảnh fill khung gọn gàng */
-      display: block;
-    }
-
-    /* Ảnh sơ đồ + caption */
-    .map-image {
-      text-align: center;
-    }
-    .map-image img {
-      width: 100%;
-      height: auto;
-      border-radius: var(--radius);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      display: block;
-      cursor: zoom-in;
-    }
-    .caption {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 4px;
-      font-style: italic;
-    }
-
-    /* Lightbox */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 10px;
-      z-index: 9999;
-    }
-    .lightbox.show { display: flex; }
-    .lightbox img {
-      max-width: min(100%, 920px);
-      width: 100%;
-      height: auto;
-      border-radius: var(--radius);
-      box-shadow: 0 6px 24px rgba(0,0,0,0.25);
-      cursor: zoom-out;
-      background: #fff;
-    }
-
-    /* Mobile: 2 cột lớn xếp dọc, NHƯNG map + ảnh vẫn 2 cột ngang như yêu cầu */
-    @media (max-width: 768px) {
-      .schedule-location { flex-direction: column; }
-      .map-container iframe { height: 220px; }
-      :root { --mapH: clamp(200px, 38vw, 280px); }
-      .map-split { gap: 8px; }
-    }
-
-    /* Style cho ngày ở phần lịch trình */
-    .schedule-date {
-      font-size: 1.2rem; /* cỡ chữ tổng thể */
-      color: #4B3FA8;     /* tím đậm pastel */
-      font-weight: 500;   /* chữ thường đậm vừa */
-      margin-bottom: 6px; /* khoảng cách dưới */
-    }
-
-    .schedule-date strong {
-      font-size: 1.5rem; /* nhấn mạnh hơn một chút */
-      font-weight: 900;   /* đậm */
-      color: #1A2A80;     /* tím đậm hơn để nổi bật */
+    .map-address {
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 4px;
     }
 
     .map-only iframe {
-      width: 100%;
-      height: 260px; /* hoặc chỉnh theo nhu cầu */
-      border: none;
-      border-radius: var(--radius);
+      height: 260px;
     }
 
     .map-link {
@@ -357,7 +237,57 @@
       color: #1A2A80;
     }
 
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      z-index: 9999;
+    }
+
+    .lightbox.show {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: min(100%, 920px);
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+      cursor: zoom-out;
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .schedule-location {
+        flex-direction: column;
+      }
+      .map-only iframe {
+        height: 220px;
+      }
+      :root {
+        --mapH: clamp(200px, 38vw, 280px);
+      }
+    }
+
+    .schedule-date {
+      font-size: 1.2rem;
+      color: #4B3FA8;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .schedule-date strong {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #1A2A80;
+    }
   </style>
+
 </head>
 
 <body>
@@ -395,18 +325,21 @@
       </ul>
     </div>
 
-    <!-- Cột Địa điểm + Map (rộng hơn) -->
     <div class="map-col">
       <h2>📍 Địa điểm</h2>
-        <div class="map-only">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1282.7508530155865!2d105.80012176151273!3d21.048104862280763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zxJHhuqFpIGjhu41jIGtob2EgaOG7jWMgdsOgIGPDtG5nIG5naOG7hyBow6AgbuG7mWk!5e0!3m2!1sen!2s!4v1755070714692!5m2!1sen!2s" 
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <p class="map-link">
-          <a class="lightbox-trigger" href="https://i.postimg.cc/gj2vc94C/S-VHL.png">📌 Xem sơ đồ các tòa nhà tại Viện Hàn Lâm tại đây</a>
-        </p>
+
+      <p class="map-address">📌 Địa chỉ: <strong>Tòa A21, Số 18 Hoàng Quốc Việt, Nghĩa Đô, Cầu Giấy, Hà Nội</strong></p>
+
+      <div class="map-only">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1282.7508530155865!2d105.80012176151273!3d21.048104862280763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zxJHhuqFpIGjhu41jIGtob2EgaOG7jWMgdsOgIGPDtG5nIG5naOG7hyBow6AgbuG7mWk!5e0!3m2!1sen!2s!4v1755070714692!5m2!1sen!2s"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <p class="map-link">
+        <a class="lightbox-trigger" href="https://i.postimg.cc/gj2vc94C/S-VHL.png">📌 Xem sơ đồ các tòa nhà tại Viện Hàn Lâm tại đây</a>
+      </p>
     </div>
-  </section>
+    </section>
 
   <section class="section">
     <h2>📝 Một chút lưu ý</h2>

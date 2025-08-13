@@ -239,12 +239,33 @@
       margin-bottom: 4px;
     }
 
+    :root {
+    --mapH: clamp(220px, 28vw, 340px);  /* desktop */
+  }
+
     /* Bên trong: map + ảnh luôn cạnh nhau (2 cột) */
     .map-split {
       display: grid;
       grid-template-columns: 1fr 1fr; /* map | image */
       gap: 12px;
-      grid-column: 1 / -1; /* trải ngang dưới h2 */
+      align-items: stretch; /* trải ngang dưới h2 */
+    }
+
+    /* Bọc để phần tử con fill chiều cao */
+    .map-container,
+    .map-image {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Áp chiều cao chung */
+    .map-container iframe,
+    .map-image img {
+      width: 100%;
+      height: var(--mapH);
+      border-radius: var(--radius);
+      object-fit: cover;  /* ảnh fill khung gọn gàng */
+      display: block;
     }
 
     /* Ảnh sơ đồ + caption */
@@ -292,6 +313,8 @@
     @media (max-width: 768px) {
       .schedule-location { flex-direction: column; }
       .map-container iframe { height: 220px; }
+      :root { --mapH: clamp(200px, 38vw, 280px); }
+      .map-split { gap: 8px; }
     }
 
     /* Style cho ngày ở phần lịch trình */
@@ -423,6 +446,10 @@
     <div class="success" id="successMessage">Cảm ơn anh/chị/bạn/em đã xác nhận! Em/mình chờ sự hiện diện của anh/chị/bạn/em vô cùng ♡ </div>
   </section>
 
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <img id="lightbox-img" alt="Sơ đồ phóng to">
+  </div>
+
   <script>
     document.getElementById('inviteForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -461,10 +488,6 @@
       });
     })();
   </script>
-
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <img id="lightbox-img" alt="Sơ đồ phóng to">
-  </div>
 </body>
 
 </html>

@@ -218,6 +218,12 @@
       flex: 1;
     }
 
+    .timeline-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* căn giữa theo chiều dọc */
+    }
+
     @media (max-width: 768px) {
       .schedule-location {
         flex-direction: column;
@@ -285,9 +291,9 @@
     Dưới đây là một số thông tin về buổi lễ, hy vọng mọi người có thể sắp xếp thời gian để cùng chụp vài tấm hình kỷ niệm nhé! 🥰</p>
   </section>
 
-  <section class="section schedule-location">
-    <div>
-      <h2>⏳ Lịch trình</h2>
+  <section class="schedule-location">
+    <div class="timeline-column">
+      <h2>⏳ Lịch trình ngày 21/08/2025</h2>
       <ul class="timeline">
         <li>
           <div class="time"><strong>09:00 - 12:00</strong></div>

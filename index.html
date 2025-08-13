@@ -224,24 +224,47 @@
       }
     }
 
+    /* Image below the map */
     .map-image {
       text-align: center;
       margin-top: 10px;
     }
-
     .map-image img {
       max-width: 100%;
       height: auto;
       border-radius: var(--radius);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      cursor: zoom-in;
     }
-
     .caption {
       font-size: 0.9rem;
       color: #555;
       margin-top: 4px;
       font-style: italic;
     }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      z-index: 9999;
+    }
+    .lightbox.show { display: flex; }
+    .lightbox img {
+      max-width: min(100%, 920px);
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+      cursor: zoom-out;
+      background: #fff;
+    }
+
 
 
   </style>
@@ -250,7 +273,8 @@
 <body>
   <header>
     <h1>🎓 Lễ tốt nghiệp 🎓</h1>
-    <p>Trân trọng mời mọi người chung vui cùng <strong>Ngọc Linh</strong></p>
+    <p>của</p>
+    <p><strong>Ngọc Linh</strong></p>
     <p>📅 <strong>21/08/2025</strong> • 📍 <strong>Tòa A21, Số 18 Hoàng Quốc Việt, Nghĩa Đô, Cầu Giấy, Hà Nội</strong></p>
   </header>
 
@@ -288,8 +312,17 @@
       </div>
 
       <div class="map-image">
-        <img src="  https://drive.google.com/file/d/1mzCjwXo-B90ptW87roKJliQxl9LaPoLX/view?usp=drivesdk" alt="Sơ đồ các tòa ở Viện Hàn Lâm">
-        <p class="caption">Sơ đồ các tòa nhà tại trường USTH để mọi người dễ tìm vị trí 📌</p>
+
+        <!-- Thay FILE_ID bằng ID thật của ảnh trong Drive -->
+        <a class="lightbox-trigger" href="https://drive.google.com/uc?export=view&id=FILE_ID">
+          <img src="https://drive.google.com/uc?export=view&id=1mzCjwXo-B90ptW87roKJliQxl9LaPoLX" alt="Sơ đồ các tòa ở trường USTH">
+        </a>
+        <p class="caption">Sơ đồ các tòa nhà tại USTH để mọi người dễ tìm vị trí 📌</p>
+      </div>
+
+      <!-- Lightbox overlay (đặt gần cuối <body>, trước </body>) -->
+      <div id="lightbox" class="lightbox" aria-hidden="true">
+        <img id="lightbox-img" alt="Sơ đồ phóng to">
       </div>
     </div>
   </section>
@@ -378,6 +411,29 @@
         alert('Có lỗi xảy ra, vui lòng thử lại!');
       });
     });
+
+
+    // Lightbox functionality
+    (function () {
+      const box = document.getElementById('lightbox');
+      const big = document.getElementById('lightbox-img');
+      document.querySelectorAll('.lightbox-trigger').forEach(a => {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          big.src = this.href;
+          box.classList.add('show');
+          box.setAttribute('aria-hidden', 'false');
+        });
+      });
+      box.addEventListener('click', function () {
+        box.classList.remove('show');
+        box.setAttribute('aria-hidden', 'true');
+        big.src = '';
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { box.click(); }
+      });
+    })();
   </script>
 </body>
 

@@ -59,16 +59,55 @@
     }
     .section p,
     .section ul,
-    .section .timeline-item {
-      margin: var(--space-xxs) 0;
+
+    /* Timeline Vertical Pastel Style */
+    .timeline {
+      list-style: none;
+      padding-left: 20px;
+      margin: var(--space-xs) 0;
+      position: relative;
     }
 
-    /* Timeline */
-    .timeline-item strong,
-    label{
-      font-weight: 500;
-      margin-bottom: var(--space-xs);
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 8px;
+      width: 2px;
+      height: 100%;
+      background: #B2B0E8; /* line pastel */
     }
+
+    .timeline li {
+      position: relative;
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+
+    .timeline li::before {
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border: 2px solid #B2B0E8;
+      border-radius: 50%;
+    }
+
+    .timeline .time strong {
+      color: #1A2A80;
+      font-weight: 700;
+    }
+
+    .timeline .event {
+      background: #f9f8ff;
+      padding: 6px 10px;
+      border-radius: 4px;
+      margin-top: 4px;
+    }
+
 
     /* Map */
     iframe {
@@ -175,10 +214,22 @@
 
   <section class="section">
     <h2>⏳ Lịch trình</h2>
-    <div class="timeline-item"><strong>09:00 - 12:00</strong>: Chụp ảnh trước lễ</div>
-    <div class="timeline-item"><strong>12:30 - 16:30</strong>: Lễ tốt nghiệp tại hội trường</div>
-    <div class="timeline-item"><strong>16:45 - 19:00</strong>: Chụp ảnh sau lễ</div>
+    <ul class="timeline">
+      <li>
+        <div class="time"><strong>09:00 - 12:00</strong></div>
+        <div class="event">📸 Chụp ảnh trước lễ</div>
+      </li>
+      <li>
+        <div class="time"><strong>12:30 - 16:30</strong></div>
+        <div class="event">🎓 Lễ tốt nghiệp tại hội trường</div>
+      </li>
+      <li>
+        <div class="time"><strong>16:45 - 19:00</strong></div>
+        <div class="event">📷 Chụp ảnh sau lễ</div>
+      </li>
+    </ul>
   </section>
+
 
   <section class="section">
     <h2>📍 Địa điểm</h2>

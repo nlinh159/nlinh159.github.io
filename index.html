@@ -209,6 +209,25 @@
       border-radius: var(--radius);
     }
 
+    /* Ảnh sơ đồ + caption dưới ảnh */
+    .map-image {
+      text-align: center;
+    }
+    .map-image img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      display: block;
+      cursor: zoom-in;
+    }
+    .caption {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
     /* 2 cột lớn: Lịch trình (trái) / Địa điểm+Map (phải) */
     .schedule-location {
       display: flex;
@@ -231,23 +250,18 @@
       align-items: start;
     }
 
-    /* Ảnh sơ đồ + caption dưới ảnh */
-    .map-image {
-      text-align: center;
+    /* Cột phải ~62% */
+    .map-col {
+      flex: 1 1 62%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;   /* map | image */
+      gap: 12px;
+      align-items: start;
     }
-    .map-image img {
-      width: 100%;
-      height: auto;
-      border-radius: var(--radius);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      display: block;
-      cursor: zoom-in;
-    }
-    .caption {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 4px;
-      font-style: italic;
+
+    /* Cho tiêu đề Địa điểm chiếm full chiều ngang grid */
+    .map-col > h2 {
+      grid-column: 1 / -1;
     }
 
     /* Lightbox */
@@ -304,7 +318,7 @@
     Dưới đây là một số thông tin về buổi lễ, hy vọng mọi người có thể sắp xếp thời gian để cùng chụp vài tấm hình kỷ niệm nhé! 🥰</p>
   </section>
 
-  <section class="section schedule-location">
+  <section class="schedule-location">
     <!-- Cột Lịch trình (hẹp hơn) -->
     <div class="schedule-col">
       <h2>⏳ Lịch trình</h2>
@@ -329,7 +343,7 @@
     <div class="map-col">
       <h2>📍 Địa điểm</h2>
       <div class="map-split">
-        <div class="map-embed">
+        <div class="map-container">
           <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1282.7508530155865!2d105.80012176151273!3d21.048104862280763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zxJHhuqFpIGjhu41jIGtob2EgaOG7jWMgdsOgIGPDtG5nIG5naOG7hyBow6AgbuG7mWk!5e0!3m2!1sen!2s!4v1755070714692!5m2!1sen!2s" 
             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>

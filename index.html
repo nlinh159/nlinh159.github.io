@@ -11,8 +11,39 @@
     .script-font {
       font-family: 'Imperial Script', cursive;
       font-size: 2rem;
-      font-weight: normal;
+      font-weight: 400;
+      font-style: normal;
     }
+
+    /* Fade-in effect */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* Slide-in letter spacing effect */
+    .letter-slide {
+      letter-spacing: 0.1em;
+      animation: spaceIn 1.2s ease forwards;
+    }
+
+    @keyframes spaceIn {
+      from {
+        letter-spacing: 0.5em;
+        opacity: 0;
+        transform: translateY(5px);
+      }
+      to {
+        letter-spacing: 0.1em;
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
 
     :root {
       --space-xxs: 4px;
@@ -202,13 +233,13 @@
     }
 
     .schedule-location > div:first-child {
-      flex: 0 0 60%;
+      flex: 0 0 40%;
       display: flex;
       flex-direction: column;
     }
 
     .map-col {
-      flex: 1 1 40%;
+      flex: 1 1 60%;
     }
 
     .map-col h2 {
@@ -296,7 +327,7 @@
   <header>
     <h1>🎓 Lễ tốt nghiệp 🎓</h1>
     <p>của</p>
-    <p><strong class="script-font">Bùi Ngọc Linh</strong></p>
+    <p><strong class="script-font fade-in">Bùi Ngọc Linh</strong></p>
   </header>
 
   <section class="section">

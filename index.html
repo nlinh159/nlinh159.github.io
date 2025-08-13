@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thiệp mời chụp ảnh tốt nghiệp</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #ffd6e8;
+    }
+    h1 {
+      margin: 0;
+    }
+    .section {
+      padding: 20px;
+    }
+    .timeline-item {
+      margin-bottom: 10px;
+    }
+    iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+      margin-top: 10px;
+    }
+    form {
+      margin-top: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      background: #ff5c8a;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover {
+      background: #e14e78;
+    }
+    .success {
+      padding: 15px;
+      background: #d4edda;
+      color: #155724;
+      border-radius: 5px;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎓 Lễ tốt nghiệp 🎓</h1>
+    <p>Mời anh/chị/bạn/em chung vui cùng <strong>Ngọc Linh</strong></p>
+    <p>📅 21/08/2025 • Số 18 Hoàng Quốc Việt, Nghĩa Đô, Cầu Giấy, Hà Nội</p>
+  </header>
+
+
+    <section class="section">
+    <h2>Thân gửi bạn/em,</h2>
+    <p>Tui rất vui mừng thông báo rằng tui đã hoàn thành chương trình học tại <strong>USTH</strong> và sắp được khoác lên mình bộ áo cử nhân. Tui rất mong muốn có sự hiện diện của bạn/em trong ngày đặc biệt này! Sau đây là một số thông tin về buổi lễ, mong các bạn/em sắp xếp được thời gian để đến chụp với mình mấy kiểu ảnh nhó ><</p>
+  </section>
+
+  <section class="section">
+  <h2>📞 Thông tin liên lạc của tui</h2>
+  <p>Nếu bạn/em cần hỏi thêm chi tiết hoặc hẹn giờ chụp, có thể liên hệ với tui qua:</p>
+  <ul>
+    <li>📱 SĐT/Zalo: <strong>0961967221</strong></li>
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28pink%29.svg" 
+           alt="Facebook" width="20" style="vertical-align: middle; margin-right: 5px;">
+      <a href="https://www.facebook.com/rimounvirya.516" target="_blank">Ngọc Linh</a></li>
+    </li>
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" 
+           alt="Instagram" width="20" style="vertical-align: middle; margin-right: 5px;">
+      <a href="https://www.instagram.com/_rimounvirya_/" target="_blank">_rimounvirya_</a></li>
+    </li>
+  </ul>
+</section>
+
+  <section class="section">
+    <h2>⏳ Lịch trình</h2>
+    <div class="timeline-item"><strong>09:00 - 12:00</strong> – Chụp ảnh trước lễ (tui mặc áo cử nhân)</div>
+    <div class="timeline-item"><strong>12:30 - 16:30</strong> – Lễ tốt nghiệp tại hội trường</div>
+    <div class="timeline-item"><strong>16:45 - 19:30</strong> – Chụp ảnh sau lễ (với cả bằng đỏ nữa nhaaa)</div>
+  </section>
+
+  <section class="section">
+    <h2>📍 Địa điểm</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1282.7508530155865!2d105.80012176151273!3d21.048104862280763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zxJHhuqFpIGjhu41jIGtob2EgaOG7jWMgdsOgIGPDtG5nIG5naOG7hyBow6AgbuG7mWk!5e0!3m2!1sen!2s!4v1755070714692!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+
+  <section class="section">
+    <h2>📩 Xác nhận tham dự</h2>
+    <form id="inviteForm" action="https://formsubmit.co/b.ngoclinh25@gmail.com" method="POST">
+      <!-- Ẩn captcha & redirect -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="">
+
+      <label>Tên của bạn/em là gì nhỉ?</label>
+      <input type="text" name="Tên" required>
+
+      <label>Bạn/em có đến với tui không? Nếu có, bạn/em sẽ đến khi nào thế?</label>
+      <select name="Tham dự" required>
+        <option value="Buổi sáng">Buổi sáng</option>
+        <option value="Buổi chiều">Buổi chiều</option>
+        <option value="Không">Không đến (hic tui sẽ buồn lắm đó)</option>
+      </select>
+
+      <button type="submit">Gửi</button>
+    </form>
+    <div class="success" id="successMessage">Cảm ơn bạn/em đã xác nhận! Nếu có vấn đề gì bạn/em đừng ngại Tui chờ sự hiện diện của bạn/em vô cùng ♡ </div>
+  </section>
+
+  <script>
+    document.getElementById('inviteForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+      }).then(() => {
+        form.style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+      }).catch(() => {
+        alert('Có lỗi xảy ra, vui lòng thử lại!');
+      });
+    });
+  </script>
+</body>
+
+</html>

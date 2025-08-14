@@ -310,19 +310,24 @@
       color: #1A2A80;
     }
 
-    .greeting-icon {
-      display: inline-block;
-      position: relative;
-      cursor: pointer;
-      margin: 8px 0;
-      text-align: center;
+    .center-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px 0;
     }
 
-    .greeting-icon img {
-      width: 36px;
-      vertical-align: middle;
+    .mail-icon {
+      font-size: 48px; /* tùy chỉnh size */
+      cursor: pointer;
+      transition: transform 0.2s ease;
     }
-    
+
+    .mail-icon:hover {
+      transform: scale(1.2); /* hiệu ứng phóng khi hover */
+    }
+
+
     .popup-box {
       display: none;
       position: fixed;
@@ -388,24 +393,23 @@
   </header>
 
 
-<div class="greeting-icon">
-  <img src="https://tse1.mm.bing.net/th/id/OIP.XlEiwAEzIXDpnoDCXWv4vAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="📩" width="36" onclick="document.getElementById('popup').classList.add('show')">
-  <p style="font-size: 0.95rem; color: #555; margin-top: 4px;">(Một vài lời mình/em muốn nói)</p>
+<div class="center-icon">
+  <span class="mail-icon">📩</span>
 </div>
 
 <div class="popup-box" id="popup">
   <div class="popup-content">
-    <em>Thân gửi anh/chị/bạn/em,</em>
+  <em style="font-style: italic; font-weight: bold; font-family: 'Imperial Script', cursive;">Thân gửi anh/chị/bạn/em,</em>
+  <p style="font-family: 'Quicksand', sans-serif; font-size: 1rem; color: #333;">
     <p>Em/mình rất vui mừng thông báo rằng em/mình đã hoàn thành chương trình học tại <strong>USTH</strong> và sắp chính thức trở thành tân cử nhân!
     Vì tất cả mọi người đều là một phần thanh xuân của mình, nên sự hiện diện của anh/chị/bạn/em trong ngày đặc biệt này sẽ là niềm vui và vinh dự rất lớn đối với em/mình! 
     Dưới đây là một số thông tin về buổi lễ, hy vọng mọi người có thể sắp xếp thời gian để cùng chụp vài tấm hình kỷ niệm ạ 🥰</p>
     <p>Em/mình rất mong nhận được phản hồi từ anh/chị/em/bạn, cảm ơn mọi người vì đã dành thời gian quý báu cho em/mình ạ!</p>
     <p>Chúc anh/chị/bạn/em một ngày tốt lành và hẹn gặp lại vào ngày 21/08 nhé! Yêu thương mọi người rất nhiều!</strong> ❤️</p>
     <p>Trân trọng,</p>
-    <p>Ngọc Linh</p>
-  </section></p>
-    <div class="popup-close" onclick="document.getElementById('popup').classList.remove('show')">Đóng lại ✕</div>
-  </div>
+    <p>Ngọc Linh</p> 
+  </p>
+  <div class="popup-close" onclick="document.getElementById('popup').classList.remove('show')">Đóng lại ✕</div>
 </div>
 
   <section class="schedule-location">

@@ -113,8 +113,8 @@
 
     .timeline li {
       position: relative;
-      margin-bottom: 20px;
-      padding-left: 20px;
+      margin-bottom: 12px; /* giảm từ 20px xuống */
+      padding-left: 18px;  /* nhẹ hơn */
     }
 
     .timeline li::before {
@@ -132,14 +132,19 @@
     .timeline .time strong {
       color: #1A2A80;
       font-weight: 700;
+      font-size: 14px;     /* nếu muốn nhỏ hơn nữa thì 13px */
+      line-height: 1.3;
     }
 
     .timeline .event {
       background: #f9f8ff;
-      padding: 6px 10px;
+      padding: 4px 8px;     /* giảm từ 6px 10px */
       border-radius: 4px;
-      margin-top: 4px;
+      margin-top: 2px;      /* giảm khoảng cách */
+      font-size: 13.5px;
+      line-height: 1.4;
     }
+
 
     iframe {
       width: 100%;

@@ -375,11 +375,17 @@
       color: #aa4b4b;
       cursor: pointer;
       transition: 0.25s;
+      float: right;
     }
 
     .popup-close:hover {
       color: #6e2323;
       text-decoration: underline;
+    }
+
+    .signature p {
+      margin-bottom: 2px;  /* giảm khoảng cách */
+      margin-top: 2px;
     }
 
   </style>
@@ -406,9 +412,10 @@
     Dưới đây là một số thông tin về buổi lễ, hy vọng mọi người có thể sắp xếp thời gian để cùng chụp vài tấm hình kỷ niệm ạ 🥰</p>
     <p>Em/mình rất mong nhận được phản hồi từ anh/chị/em/bạn, cảm ơn mọi người vì đã dành thời gian quý báu cho em/mình ạ!</p>
     <p>Chúc anh/chị/bạn/em một ngày tốt lành và hẹn gặp lại vào ngày 21/08 nhé! Yêu thương mọi người rất nhiều!</strong> ❤️</p>
-    <p><strong>Trân trọng,</strong></p>
-    <p><strong>Ngọc Linh</strong></p> 
-    </p>
+    <div class="signature">
+      <p><strong>Trân trọng,</strong></p>
+      <p><strong>Ngọc Linh</strong></p>
+    </div>
     <div class="popup-close" onclick="document.getElementById('popup').classList.remove('show')">Đóng lại ✕</div>
   </div>
 </div>

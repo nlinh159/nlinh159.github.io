@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thiệp mời chụp ảnh tốt nghiệp với Ngọc Linh</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Imperial+Script&family=Fuzzy+Bubbles:wght@400;700&family=Yomogi&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Imperial+Script&family=Fuzzy+Bubbles:wght@400;700&family=Yomogi&family=Borel&display=swap');
     .script-font {
       font-family: 'Imperial Script', cursive;
       font-size: 2rem;
@@ -349,7 +349,7 @@
     }
 
     .mail-icon {
-      font-size: 60px; /* tùy chỉnh size */
+      font-size: 80px; /* tùy chỉnh size */
       cursor: pointer;
       transition: transform 0.2s ease;
     }
@@ -419,15 +419,32 @@
     }
 
     .mail-container {
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .mail-caption {
+      font-family: 'Borel', cursive;
       font-size: 0.9rem;
       color: #555;
       margin-top: 0px;
-      font-style: italic;
       opacity: 0.8;
+      position: relative;
+      animation: shimmer 2.5s infinite;
+    }
+
+    /* Hiệu ứng lấp lánh ánh sáng */
+    @keyframes shimmer {
+      0% {
+        text-shadow: 0 0 2px #fff, 0 0 5px #ffb6c1, 0 0 10px #ff69b4;
+      }
+      50% {
+        text-shadow: 0 0 4px #fff, 0 0 8px #ffc0cb, 0 0 14px #ff69b4;
+      }
+      100% {
+        text-shadow: 0 0 2px #fff, 0 0 5px #ffb6c1, 0 0 10px #ff69b4;
+      }
     }
 
   </style>

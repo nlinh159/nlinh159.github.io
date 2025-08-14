@@ -550,6 +550,12 @@
         if (e.key === 'Escape') { box.click(); }
       });
     })();
+
+    // Mở popup khi click icon thư
+    document.querySelector('.mail-icon').addEventListener('click', function () {
+    document.getElementById('popup').classList.add('show');
+});
+
   </script>
 </body>
 

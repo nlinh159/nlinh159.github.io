@@ -333,22 +333,36 @@
       font-size: 0.95rem;
     }
 
-    .popup-content em {
-      display: block;
-      font-weight: 600;
-      font-style: italic;
-      color: #1A2A80;
-      margin-bottom: 6px;
+    .popup-content {
+      background: linear-gradient(135deg, #fff0f5 0%, #ffe4e9 100%);
+      padding: 22px;
+      max-width: 520px;
+      border: 2px solid #d4a5a5;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      font-family: 'Imperial Script', cursive;
+      font-size: 1.6rem;
+      color: #5a3a3a;
+      line-height: 1.8;
+      text-align: center;
+      position: relative;
+      background-clip: padding-box;
     }
 
     .popup-close {
-      text-align: right;
-      margin-top: 12px;
-      font-size: 0.9rem;
-      color: #4B3FA8;
+      margin-top: 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #aa4b4b;
       cursor: pointer;
+      transition: 0.25s;
     }
 
+    .popup-close:hover {
+      color: #6e2323;
+      text-decoration: underline;
+    }
+    
   </style>
 
 </head>
